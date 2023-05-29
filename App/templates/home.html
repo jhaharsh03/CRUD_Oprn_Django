@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+<!-- NavBar Content-->
+{% block navbar-content %}
+<i style="color:yellowgreen;" class="fas fa-user-alt"></i>&nbsp;&nbsp; Employee List
+{% endblock navbar-content %}
+
+<!-- Page content -->
+{% block content %}
+<div class="container">
+  <br><br><br>
+
+  <table class="table table-bordered" id="example" style="text-align: center;">
+    <thead class="table-success">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Occupation</th>
+        <th>Salary</th>
+        <th>Gender</th>
+        <th>Registered</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <!--Data from Backend-->
+    {% for employee in employees %}
+    <tr>
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.occupation }}</td>
+      <td>{{ employee.salary }}</td>
+      <td>{{ employee.gender }}</td>
+      <td>{{ employee.created_at|date:'m/d/Y H:i' }}</td>
+      <td>
+        <a class = "btn btn-success text-center" title = "Edit employee">
+          <i class="fas fa-pen"></i>
+        </a>
+      </td>
+      <td>
+        <a class = "btn btn-secondary text-center" title = "Delete employee">
+          <i class="fas fa-tras-alt"></i>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div> <!--End container-->
+<br><br><br><br><br>
+{% endblock %}

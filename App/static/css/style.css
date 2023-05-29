@@ -1,0 +1,44 @@
+/* START CONFIGURATION */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* Footer */
+.wrapper {
+  min-height: calc(100% - 50px);
+}
+
+#footer {
+  height: 50px;
+  position: relative;
+  margin-top: -50px;
+}
+
+.push {
+  height: 50px;
+}
+
+/* Custorm Pagination */
+
+.page-item.active .page-link{
+  columns: white;
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
+}
+.pagination > li > a{
+  background-color: white;
+  color: #6c757d;
+}
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > span > a:focus,
+.pagination > span > a:hover{
+   color: black;
+   background-color: aliceblue;
+   border: 1px solid #6c757d;
+   box-shadow: none;
+}
+
