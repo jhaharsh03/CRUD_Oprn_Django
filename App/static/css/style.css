@@ -42,3 +42,33 @@ body {
    box-shadow: none;
 }
 
+.modal-body .d-flex.justify-content-between {
+  align-items: center;
+}
+
+.modal-body .d-flex.justify-content-between > button,
+.modal-body .d-flex.justify-content-between > div {
+  margin-bottom: 0;
+}
+
+.input-group .btn {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.input-group .btn i {
+  margin-right: 8px;
+}
+
+
+.input-group-prepend {
+  margin-right: -1px;
+  height: 100%;
+}
+
+.form-control {
+  height: 100%;
+}
+
+

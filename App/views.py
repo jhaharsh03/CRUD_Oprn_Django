@@ -60,4 +60,3 @@ def delete_employee(request, employee_id):
     employee.delete()
     messages.success(request, "Employee deleted successfully!")
     return HttpResponseRedirect("/")
-
