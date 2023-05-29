@@ -7,7 +7,7 @@
 <!-- Page content -->
 {% block content %}
 <div class="container">
-  <br><br><br>
+  <br><br>
 
   <table class="table table-bordered" id="example" style="text-align: center;">
     <thead class="table-success">
@@ -34,18 +34,44 @@
       <td>{{ employee.gender }}</td>
       <td>{{ employee.created_at|date:'m/d/Y H:i' }}</td>
       <td>
-        <a class = "btn btn-success text-center" title = "Edit employee">
+        <a class = "btn btn-success text-center" title = "Edit employee" data-bs-toggle="modal" data-bs-target="#editModal{{ employee.pk }}">
           <i class="fas fa-pen"></i>
         </a>
       </td>
       <td>
-        <a class = "btn btn-secondary text-center" title = "Delete employee">
-          <i class="fas fa-tras-alt"></i>
+        <a class = "btn btn-secondary text-center" title = "Delete employee" data-bs-toggle="modal" data-bs-target="#deleteModal{{ employee.pk }}">
+          <i class="fas fa-trash-alt"></i>
         </a>
       </td>
     </tr>
+    {% include 'edit.html' %}
+
+
+        <!-- Delete Confirmation -->
+        <div class="modal fade" id="deleteModal{{ employee.pk }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel"> <i class="fas fa-tras-alt"></i> &nbsp; &nbsp; Delete Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="text-center text -danger"> <i class="fas fa-times-circle fa-5x mb-4 mt-2"></i></div>
+                  <div class="text-center text -danger">
+                    <span>Do You Want To Delete This Employee???</span>
+                    <div class="text-dark mt-3 mb-2">Employee:<strong>{{ employee.name }}</strong></div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                <a href="/delete_employee/{{ employee.id }}" class="btn btn-outline-danger btn-sm">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     {% endfor %}
-  </table>
+  </table>1
 </div> <!--End container-->
-<br><br><br><br><br>
 {% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'add.html' %}
+
+<!--Modal ID-->
+{% block model-id %} id = "editModal{{ employee.pk }}" {% endblock model-id %}
+
+<!--Modal Title-->
+{% block model-titile %}
+            <i class = "fas fa-edit"></i>&nbsp; &nbsp; Edit Employee
+{% endblock model-titile %}
+<!--Form Action-->
+{% block action %} action = "/edit_employee" {% endblock action %}
+<!--Butoon Action-->
+{% block btn-action %} <i class="fas fa-server"></i>&nbsp; &nbsp; Save Changes {% endblock btn-action %}
+<!--=======================All Inputs===========================-->
+<!--ID-->
+{% block Value-id %}
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <i class="fas fa-key"></i>
+      </span>
+    </div>
+    <input type="text" class="form-control" name="id" value="{{employee.id}}" readonly>
+  </div>
+{% endblock Value-id %}
+<!--Name-->
+{% block Value-name %} value="{{employee.name}}" {% endblock Value-name %}
+<!--Email-->
+{% block Value-email %} value="{{employee.email}}" {% endblock Value-email %}
+<!--Occupation-->
+{% block Value-occupation %} value="{{employee.occupation}}" {% endblock Value-occupation%}
+<!--Salary-->
+{% block Value-salary %} value="{{employee.salary}}" {% endblock Value-salary %}
+<!--Gender-->
+{% block option %}
+<option style="background-color: whitesmoke; counter-reset: #111;">{{employee.gender}}</option>
+{% endblock option %}
+<!--Note-->
+{% block note %}{{employee.salary}}{% endblock note %}
